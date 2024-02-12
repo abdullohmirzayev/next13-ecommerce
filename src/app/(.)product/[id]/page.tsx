@@ -10,7 +10,7 @@ import { StarIcon } from "@heroicons/react/24/solid";
 import ReactStars from "react-stars";
 import { toast } from "react-toastify";
 
-const ProductDetailedPage = () => {
+const ProductDetailedPage = (): JSX.Element => {
   const [laoding, setLaoding] = useState(false);
   const [product, setProduct] = useState<ProductType>();
   const [isOpen, setIsOpen] = useState(true);

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-const Navbar = () => {
+const Navbar = (): JSX.Element => {
   return (
     <header className="flex items-center px-4 md:px-12 py-2 justify-between flexed top-0 w-full z-50 shadow bg-white">
       <Link href={"/"}>

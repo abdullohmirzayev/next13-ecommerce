@@ -5,8 +5,10 @@ import { ProductType } from "@/interface";
 import CustomImage from "@/components/image";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
-const ShoppingCart = () => {
+const ShoppingCart = (): JSX.Element => {
+  const [isLoading, setIsLoading] = useState(true);
   const [total, setTotal] = useState<number>(0);
   const [products, setProducts] = useState<ProductType[]>(
     JSON.parse(localStorage.getItem("carts") as string) || []
@@ -236,10 +238,17 @@ const ShoppingCart = () => {
             </div>
 
             <div className="relative w-full mt-8 lg:w-1/2 lg:mt-0">
-              <img
-                className=" w-full lg:h-[32rem] h-80 md:h-96 rounded-lg object-cover "
+              <Image
+                className={`lg:h-[32rem] h-80 md:h-96 rounded-lg object-cover first-letter${
+                  isLoading
+                    ? "scale-110 blur-2xl grayscale"
+                    : "scale-100 blur-0 grayscale-0"
+                }`}
+                width={600}
+                height={600}
                 src="https://images.unsplash.com/photo-1613310023042-ad79320c00ff?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
-                alt=""
+                alt="mountent"
+                onLoadingComplete={() => setIsLoading(false)}
               />
             </div>
           </div>

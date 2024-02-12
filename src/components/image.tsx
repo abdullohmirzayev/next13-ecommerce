@@ -9,7 +9,7 @@ interface Props {
   fill?: boolean;
 }
 
-const CustomImage: FC<Props> = ({ product, fill }) => {
+const CustomImage: FC<Props> = ({ product, fill }): JSX.Element => {
   const [isLoading, setIsLoading] = useState(true);
   return (
     <>
