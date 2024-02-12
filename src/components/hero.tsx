@@ -1,12 +1,25 @@
+"use client"
+import Image from "next/image";
+import { useState } from "react";
+
 const Hero = (): JSX.Element => {
+  const [isLoading, setIsLoading] = useState(true);
+
   return (
     <section className="text-gray-600 body-font">
       <div className="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
         <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0">
-          <img
-            className="object-cover object-center rounded"
-            alt="hero"
-            src="https://dummyimage.com/720x600"
+          <Image
+            className={`rounded-lg object-cover first-letter${
+              isLoading
+                ? "scale-110 blur-2xl grayscale"
+                : "scale-100 blur-0 grayscale-0"
+            }`}
+            width={600}
+            height={600}
+            src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt="cloths"
+            onLoadingComplete={() => setIsLoading(false)}
           />
         </div>
         <div className="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">

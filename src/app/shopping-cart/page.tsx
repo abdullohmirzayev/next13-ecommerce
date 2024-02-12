@@ -246,8 +246,8 @@ const ShoppingCart = (): JSX.Element => {
                 }`}
                 width={600}
                 height={600}
-                src="https://images.unsplash.com/photo-1613310023042-ad79320c00ff?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
-                alt="mountent"
+                src="https://images.unsplash.com/photo-1544441893-675973e31985?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="clothing"
                 onLoadingComplete={() => setIsLoading(false)}
               />
             </div>
