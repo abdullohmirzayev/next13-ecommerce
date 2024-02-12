@@ -1,3 +1,4 @@
+import Cta from "@/components/cta";
 import Feature from "@/components/feature";
 import Product from "@/components/product";
 import { ProductType } from "@/interface";
@@ -15,6 +16,7 @@ const ProductsPage = async () => {
           ))}
         </div>
       </section>
+      <Cta />
     </main>
   );
 };
