@@ -3,12 +3,18 @@
 import ReactStars from "react-stars";
 import { ProductType } from "@/interface";
 import CustomImage from "@/components/image";
+import { useState } from "react";
 
 const ShoppingCart = () => {
-  const products: ProductType[] =
-    JSON.parse(localStorage.getItem("carts") as string) || [];
+  const [products, setProducts] = useState<ProductType[]>(
+    JSON.parse(localStorage.getItem("carts") as string) || []
+  );
 
-  console.log(products);
+  const removeProduct = (id: number) => {
+    const updatedCart = products.filter((product) => product.id !== id);
+    localStorage.setItem("carts", JSON.stringify(updatedCart));
+    setProducts(updatedCart);
+  };
 
   return (
     <div className="h-screen bg-gray-100 pt-20">
@@ -55,7 +61,7 @@ const ShoppingCart = () => {
                     <input
                       className="h-8 w-8 border bg-white text-center text-xs outline-none"
                       type="number"
-                      value={product.quantity}
+                      defaultValue={product.quantity}
                       min="1"
                     />
                     <span className="cursor-pointer rounded-r bg-gray-100 py-1 px-3 duration-100 hover:bg-blue-500 hover:text-blue-50">
@@ -77,6 +83,7 @@ const ShoppingCart = () => {
                       strokeWidth="1.5"
                       stroke="currentColor"
                       className="h-5 w-5 cursor-pointer duration-150 hover:text-red-500"
+                      onClick={() => removeProduct(product.id)}
                     >
                       <path
                         strokeLinecap="round"
